@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # max length of the lines in the ascii art
     border_len = len(max(rep, key=len))
 
-    # the number of ascii art repetitions that'll fit in 80 char
+    # the number of ascii art repetitions that'll fit in 100 char
     length = (int) (100 / border_len)
 
     # create the top/bottom border of the box
@@ -106,52 +106,6 @@ if __name__ == "__main__":
     pyperclip.copy(to_copy)
 
     print("The above text has been copied to your clipboard!")
-
-
-'''
-["      ,~~.", 
-"     (  6 )-_,", 
-"(\___ )=='-'",
-" \ .   ) )",
-"  \ `-' /",
-" ~'`~'`~'`~`~'`"]
-
-["     _ _  __", 
-    "    ( | )/_/", 
-    " __( >O< )", 
-    " \_\(_|_)"]
-
-["  //",
-" ('>",
-" /rr",
-"*\\))_"]
-
-["\ o /  o ", 
-"  |   /|\\ ", 
-" / \  / \\ "]
-
-["      ______",
-"    _(      )_",
-"   (_   _    _)",
-"  / /(_) (__)",
-" / / / / / /",
-"/ / / / / /"]
- 
-["    _,,,_",
-"  {`     `}",
-" {,,_____,,}",
-"  ,, | | ,",
-"   , | | ,,",
-" ____/ \\____"]
-
-["      .~~~~`\\~~\\",
-"     ;       ~~ \\",
-"     |           ;",
-" ,--------,______|---.",
-"/          \\-----`    \\",
-"`.__________`-_______-'"]
-'''
-
 
 
 
