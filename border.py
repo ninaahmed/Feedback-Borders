@@ -30,12 +30,7 @@ def split_count(input, char_count):
     return output
 
 if __name__ == "__main__":
-    rep = ["      .~~~~`\\~~\\",
-            "     ;       ~~ \\",
-            "     |           ;",
-            " ,--------,______|---.",
-            "/          \\-----`    \\",
-            "`.__________`-_______-'"]
+    rep = ["[ ]"]
 
     # max length of the lines in the ascii art
     border_len = len(max(rep, key=len))
@@ -54,84 +49,57 @@ if __name__ == "__main__":
             border_line += full_line
         fence = 1
 
-    exit = False
-    messages = []
+    while True:
+        exit = False
+        messages = []
 
-    # take in input for comments
-    # TODO: worry about tabbing for -1?
-    while exit != True:
-        print("Enter your stuff, type STOP to stop: ")
-        str = input()
-        exit = str == 'STOP'
+        # take in input for comments
+        # TODO: worry about tabbing for -1?
+        while exit != True:
+            print("Enter your stuff, type STOP to stop: ")
+            str = input()
+            exit = str == 'STOP'
 
-        if exit != True:
-            messages.append(str)
+            if exit != True:
+                messages.append(str)
 
-    # calculate the width inside the box, split accordingly
-    message_len = (length * border_len) - (2 * border_len) - 1
-    lines = split_count(messages, message_len)
+        # calculate the width inside the box, split accordingly
+        message_len = (length * border_len) - (2 * border_len) - 1
+        lines = split_count(messages, message_len)
 
-    final = []
-    final.append(border_line)
+        final = []
+        final.append(border_line)
 
-    # add individual lines w/ border to a list
-    for index in range(0, len(lines)):
-        bord_index = index % len(rep)
+        # add individual lines w/ border to a list
+        for index in range(0, len(lines)):
+            bord_index = index % len(rep)
 
-        temp = rep[bord_index].ljust(border_len) + " "
-        temp += lines[index]
-        temp += rep[bord_index].ljust(border_len)
+            temp = rep[bord_index].ljust(border_len) + " "
+            temp += lines[index]
+            temp += rep[bord_index].ljust(border_len)
 
-        final.append(temp)
+            final.append(temp)
 
-    leftover = len(lines) % len(rep)
+        leftover = len(lines) % len(rep)
 
-    # finish ascii art on sides
-    while leftover % len(rep) != 0:
-        temp = rep[leftover].ljust(border_len) + " "
-        temp += "".ljust(message_len)
-        temp += rep[leftover].ljust(border_len)
+        # finish ascii art on sides
+        while leftover % len(rep) != 0:
+            temp = rep[leftover].ljust(border_len) + " "
+            temp += "".ljust(message_len)
+            temp += rep[leftover].ljust(border_len)
 
-        leftover += 1
-        final.append(temp)
+            leftover += 1
+            final.append(temp)
 
-    # add on bottom border
-    final.append(border_line)
+        # add on bottom border
+        final.append(border_line)
 
-    to_copy = ""
-    for line in final:
-        print(line)
-        to_copy += line + "\n"
+        to_copy = ""
+        print()
+        for line in final:
+            print(line)
+            to_copy += line + "\n"
 
-    pyperclip.copy(to_copy)
+        pyperclip.copy(to_copy)
 
-    print("The above text has been copied to your clipboard!")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        print("The above text has been copied to your clipboard! ^C to exit\n")
