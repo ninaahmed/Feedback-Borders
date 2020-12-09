@@ -30,7 +30,12 @@ def split_count(input, char_count):
     return output
 
 if __name__ == "__main__":
-    rep = ["[ ]"]
+    rep = ["      .~~~~`\\~~\\",
+"     ;       ~~ \\",
+"     |           ;",
+" ,--------,______|---.",
+"/          \\-----`    \\",
+"`.__________`-_______-'"]
 
     # max length of the lines in the ascii art
     border_len = len(max(rep, key=len))
